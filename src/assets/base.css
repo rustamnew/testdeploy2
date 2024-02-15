@@ -1,0 +1,294 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #181818;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family:  'TT Interfaces', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-SemiBoldItalic.eot');
+    src: local('TT Interfaces SemiBold Italic'), local('TTInterfaces-SemiBoldItalic'),
+        url('./font/TTInterfaces-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-SemiBoldItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-SemiBoldItalic.woff') format('woff'),
+        url('./font/TTInterfaces-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-MediumItalic.eot');
+    src: local('TT Interfaces Medium Italic'), local('TTInterfaces-MediumItalic'),
+        url('./font/TTInterfaces-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-MediumItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-MediumItalic.woff') format('woff'),
+        url('./font/TTInterfaces-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-BoldItalic.eot');
+    src: local('TT Interfaces Bold Italic'), local('TTInterfaces-BoldItalic'),
+        url('./font/TTInterfaces-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-BoldItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-BoldItalic.woff') format('woff'),
+        url('./font/TTInterfaces-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Italic.eot');
+    src: local('TT Interfaces Italic'), local('TTInterfaces-Italic'),
+        url('./font/TTInterfaces-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Italic.woff2') format('woff2'),
+        url('./font/TTInterfaces-Italic.woff') format('woff'),
+        url('./font/TTInterfaces-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-SemiBold.eot');
+    src: local('TT Interfaces SemiBold'), local('TTInterfaces-SemiBold'),
+        url('./font/TTInterfaces-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-SemiBold.woff2') format('woff2'),
+        url('./font/TTInterfaces-SemiBold.woff') format('woff'),
+        url('./font/TTInterfaces-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Medium.eot');
+    src: local('TT Interfaces Medium'), local('TTInterfaces-Medium'),
+        url('./font/TTInterfaces-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Medium.woff2') format('woff2'),
+        url('./font/TTInterfaces-Medium.woff') format('woff'),
+        url('./font/TTInterfaces-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-ExtraBold.eot');
+    src: local('TT Interfaces ExtraBold'), local('TTInterfaces-ExtraBold'),
+        url('./font/TTInterfaces-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-ExtraBold.woff2') format('woff2'),
+        url('./font/TTInterfaces-ExtraBold.woff') format('woff'),
+        url('./font/TTInterfaces-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-BlackItalic.eot');
+    src: local('TT Interfaces Black Italic'), local('TTInterfaces-BlackItalic'),
+        url('./font/TTInterfaces-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-BlackItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-BlackItalic.woff') format('woff'),
+        url('./font/TTInterfaces-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Bold.eot');
+    src: local('TT Interfaces Bold'), local('TTInterfaces-Bold'),
+        url('./font/TTInterfaces-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Bold.woff2') format('woff2'),
+        url('./font/TTInterfaces-Bold.woff') format('woff'),
+        url('./font/TTInterfaces-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Light.eot');
+    src: local('TT Interfaces Light'), local('TTInterfaces-Light'),
+        url('./font/TTInterfaces-Light.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Light.woff2') format('woff2'),
+        url('./font/TTInterfaces-Light.woff') format('woff'),
+        url('./font/TTInterfaces-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-ExtraBoldItalic.eot');
+    src: local('TT Interfaces ExtraBold Italic'), local('TTInterfaces-ExtraBoldItalic'),
+        url('./font/TTInterfaces-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-ExtraBoldItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-ExtraBoldItalic.woff') format('woff'),
+        url('./font/TTInterfaces-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Regular.eot');
+    src: local('TT Interfaces Regular'), local('TTInterfaces-Regular'),
+        url('./font/TTInterfaces-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Regular.woff2') format('woff2'),
+        url('./font/TTInterfaces-Regular.woff') format('woff'),
+        url('./font/TTInterfaces-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Black.eot');
+    src: local('TT Interfaces Black'), local('TTInterfaces-Black'),
+        url('./font/TTInterfaces-Black.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Black.woff2') format('woff2'),
+        url('./font/TTInterfaces-Black.woff') format('woff'),
+        url('./font/TTInterfaces-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-ThinItalic.eot');
+    src: local('TT Interfaces Thin Italic'), local('TTInterfaces-ThinItalic'),
+        url('./font/TTInterfaces-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-ThinItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-ThinItalic.woff') format('woff'),
+        url('./font/TTInterfaces-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-LightItalic.eot');
+    src: local('TT Interfaces Light Italic'), local('TTInterfaces-LightItalic'),
+        url('./font/TTInterfaces-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-LightItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-LightItalic.woff') format('woff'),
+        url('./font/TTInterfaces-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-ExtraLightItalic.eot');
+    src: local('TT Interfaces ExtLt Ita'), local('TTInterfaces-ExtraLightItalic'),
+        url('./font/TTInterfaces-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-ExtraLightItalic.woff2') format('woff2'),
+        url('./font/TTInterfaces-ExtraLightItalic.woff') format('woff'),
+        url('./font/TTInterfaces-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-Thin.eot');
+    src: local('TT Interfaces Thin'), local('TTInterfaces-Thin'),
+        url('./font/TTInterfaces-Thin.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-Thin.woff2') format('woff2'),
+        url('./font/TTInterfaces-Thin.woff') format('woff'),
+        url('./font/TTInterfaces-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Interfaces';
+    src: url('./font/TTInterfaces-ExtraLight.eot');
+    src: local('TT Interfaces Extra Light'), local('TTInterfaces-ExtraLight'),
+        url('./font/TTInterfaces-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('./font/TTInterfaces-ExtraLight.woff2') format('woff2'),
+        url('./font/TTInterfaces-ExtraLight.woff') format('woff'),
+        url('./font/TTInterfaces-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
