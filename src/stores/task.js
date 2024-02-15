@@ -58,12 +58,14 @@ export const useTaskStore = defineStore('task', {
 
             this.removeItem(index, column)
         },
-        removeItem(index, column) {
+        removeItem(index, column, notification) {
             const text = column.items[index].text
             column.items.splice(index, 1)
             this.saveData()
             
-            this.notificationStore.createMessage('Задача удалена', text)
+            if (notification === true) {
+                this.notificationStore.createMessage('Задача удалена', text)
+            }
         }
     }
 })

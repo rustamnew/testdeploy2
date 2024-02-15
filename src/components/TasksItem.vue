@@ -114,7 +114,7 @@ function closeModal() {
             item: Object,
             index: Number
         },
-        emits: ['dragstart', 'removeItem', 'save'],
+        emits: ['dragstart', 'removeItem'],
         data() {
             const taskStore = useTaskStore()
             return {
@@ -161,7 +161,6 @@ function closeModal() {
             },
 
             saveValue() {
-                this.$emit('save', this.itemObj.text);
                 this.editMode = false
                 this.item.active = false
                 this.taskStore.saveData()

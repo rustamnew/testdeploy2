@@ -3,6 +3,8 @@ import TasksItem from './TasksItem.vue';
 import IconPlus from './icons/IconPlus.vue';
 
 import { useTaskStore } from '../stores/task';
+
+import { useNotificationStore } from '../stores/notification'
 </script>
 
 <template>
@@ -39,8 +41,10 @@ import { useTaskStore } from '../stores/task';
         
         data() {
             const taskStore = useTaskStore()
+            const notificationStore = useNotificationStore()
 
             return {
+                notificationStore,
                 taskStore
             }
         },
@@ -50,10 +54,13 @@ import { useTaskStore } from '../stores/task';
                     this.column.items = []
                 }
                 this.column.items.push({active: true})
+                this.taskStore.saveData()
+
+                this.notificationStore.createMessage(`Задача создана в "${this.column.title}"`)
             },
 
             removeItem(index) {
-                this.taskStore.removeItem(index, this.column)
+                this.taskStore.removeItem(index, this.column, true)
             },
 
             onDragOver(event) {
@@ -64,11 +71,12 @@ import { useTaskStore } from '../stores/task';
                 if (!column.items) {
                     column.items = []
                 }
-
                 column.items.push(this.taskStore.drag.item)
                 
                 this.taskStore.removeDraggedItem()
                 this.taskStore.saveData()
+
+                this.notificationStore.createMessage(`Задача перемещена в "${column.title}"`, this.taskStore.drag.item.text)
             },
 
             dragStartHandle() {
