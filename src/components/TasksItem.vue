@@ -37,7 +37,7 @@ function closeModal() {
 <template>
     <div 
     class="tasksItem" 
-    :class="editMode === true || item.active === true? 'active' : '' " 
+    :class="editMode === true ? 'active' : '' " 
     :draggable="!editMode"
     @dragstart="startDrag($event, item)">
         <template v-if="editMode === false">
@@ -52,7 +52,7 @@ function closeModal() {
                     </button>
 
                     <div class="dropdown" :style="`top: ${dropdownCoords.top}px; left: ${dropdownCoords.left}px`" v-on-click-outside="closeDropdown" v-if="dropdownShow">
-                        <button class="item" @click="setEditMode(true); closeDropdown()">
+                        <button class="item" @click="showEdit(); closeDropdown()">
                             <div class="icon"><IconEdit /></div>
                             <div class="title">Редактировать</div>
                         </button>
@@ -79,7 +79,7 @@ function closeModal() {
                 <button @click="cancelEdit()"><IconXRed /></button>
                 <button @click="saveValue()"><IconCheck /></button>
             </div>
-            
+
         </template>
         
         
@@ -134,18 +134,12 @@ function closeModal() {
                 this.editMode = false
             }
         },
+        mounted() {
+            if (this.item.active === true) {
+                this.showEdit()
+            }
+        },
         methods: {
-            setEditMode(mode) {
-                this.editMode = mode
-                
-                this.$nextTick( () => {
-                    this.resizeTextarea()
-                    this.$refs.textarea.focus()
-                })
-
-                this.oldVal = this.item.text
-            },
-
             resizeTextarea() {
                 const element = this.$refs.textarea;
                 element.style.height = "18px";
@@ -154,6 +148,16 @@ function closeModal() {
 
             changeHandler() {
                 this.$emit('change', this.itemObj.text);
+            },
+
+            showEdit() {
+                this.editMode = true
+                this.oldVal = this.item.text
+
+                this.$nextTick( () => {
+                    this.resizeTextarea()
+                    this.$refs.textarea.focus()
+                })
             },
 
             cancelEdit() {
