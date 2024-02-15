@@ -37,8 +37,8 @@ function closeModal() {
 <template>
     <div 
     class="tasksItem" 
-    :class="editMode === true ? 'active' : '' " 
-    draggable="true"
+    :class="editMode === true || item.active === true? 'active' : '' " 
+    :draggable="!editMode"
     @dragstart="startDrag($event, item)">
         <template v-if="editMode === false">
             <p class="text" >{{ item.text ? item.text : '&nbsp;'}}</p>
@@ -128,9 +128,10 @@ function closeModal() {
                 }
             }
         },
-        mounted() {
-            if (this.itemObj.active === true) {
-                this.setEditMode(true)
+        watch: { 
+            item: function(newVal, oldVal) {
+                this.itemObj = newVal
+                this.editMode = false
             }
         },
         methods: {
