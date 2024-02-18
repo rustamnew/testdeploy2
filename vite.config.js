@@ -5,13 +5,12 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: '/testdeploy2/',
-    plugins: [
-        vue(),
-    ],
-    resolve: {
-        alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
-        }
+  plugins: [
+    vue(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  }
 })

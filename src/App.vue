@@ -1,24 +1,16 @@
 <script setup>
-import Tasks from './components/Tasks.vue'
-import Notification from './components/Notification.vue'
+    import AppHeader from './components/AppHeader.vue'
+    import AppFooter from './components/AppFooter.vue'
+    import Subscribe from './components/Subscribe.vue'
+    
 </script>
 
 <template>
-    <main>
-        <Tasks />
-        <Notification />
-    </main>
-</template>
+    <div class="max-w-5xl md:mx-auto">
+        <AppHeader />
 
-<style>
-    main {
-        width: 100%;
-        max-width: 1024px;
-        margin: 0 auto;
-    }
-    button {
-        border: none;
-        background: none;
-        cursor: pointer;
-    }
-</style>
+        <Subscribe />
+
+        <AppFooter />
+    </div>
+</template>
