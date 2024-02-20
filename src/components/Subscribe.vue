@@ -2,8 +2,6 @@
 import SubscribeForm from './SubscribeForm.vue';
 import SubscribeCard from './SubscribeCard.vue';
 
-import { ref } from 'vue';
-
 const cards = [
     {
         subtitle: 'Перед рассветом',
@@ -51,31 +49,10 @@ const cards = [
     },
 ]
 
-const buttons = ref([
-    {
-        title: 'Рассылки',
-        active: true
-    },
-    {
-        title: 'Соцсети',
-        active: false
-    },
-    {
-        title: 'Мессенджеры',
-        active: false
-    }
-])
-
 const buttonActiveStyle = 'font-medium text-base border-custom-blue text-custom-lightblue '
 const buttonDefaultStyle = 'font-normal text-base border-transparent text-custom-gray'
 
-
-function clickButton(index) {
-    this.buttons.forEach( (button) => {
-        button.active = false
-    })
-    this.buttons[index].active = !this.buttons[index].active
-}
+ 
 </script>
 
 <template>
@@ -99,3 +76,35 @@ function clickButton(index) {
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                buttons: [
+                    {
+                        title: 'Рассылки',
+                        active: true
+                    },
+                    {
+                        title: 'Соцсети',
+                        active: false
+                    },
+                    {
+                        title: 'Мессенджеры',
+                        active: false
+                    }
+                ]
+            }
+        },
+        methods: {
+            clickButton(index) {
+                this.buttons.forEach( (button) => {
+                    button.active = false
+                })
+                this.buttons[index].active = !this.buttons[index].active
+            }
+        }
+
+    }
+</script>
