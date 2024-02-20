@@ -1,13 +1,26 @@
+<script setup>
+    const items = [
+        {
+            title: 'Главная',
+            link: '#'
+        },
+        {
+            title: 'Рассылки',
+            link: '#'
+        },
+        {
+            title: 'Хлебные крошки',
+            link: '#'
+        },
+    ]
+</script>
+
 <template>
     <div class="breadcrumbs text-xxs text-custom-lightgray flex items-center pt-1">
-        <a href="#" class="border-b border-custom-lightblue2 pb-px leading-none">Главная</a>
+        <template v-for="item, index in items">
+            <span class="mx-2 pb-px" v-if="index > 0">→</span>
 
-        <span class="mx-2 pb-px">→</span>
-
-        <a href="#" class="border-b border-custom-lightblue2 pb-px leading-none">Рассылки</a>
-
-        <span class="mx-2 pb-px">→</span>
-
-        <a href="#" class="border-b border-custom-lightblue2 pb-px leading-none">Хлебные крошки</a>
+            <a :href="item.link" class="border-b border-custom-lightblue2 pb-px leading-none hover:text-custom-gray">{{ item.title }}</a>
+        </template>
     </div>
 </template>
