@@ -26,7 +26,7 @@
 
             
             <div class="image h-10 w-10 md:h-20 md:w-20 ml-6 shrink-0 absolute top-6 right-4 md:top-0 md:right-0 md:relative max-w-20per" v-if="card.image">
-                <img class="h-full w-full" :src="`/images/${card.image}`" alt="image">
+                <img class="h-full w-full" :src="`/testdeploy2/images/${card.image}`" alt="image">
             </div>
         </div>
     
