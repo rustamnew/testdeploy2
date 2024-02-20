@@ -1,5 +1,5 @@
 <template>
-    <div class="breadcrumbs text-xxs text-custom-lightgray flex items-center">
+    <div class="breadcrumbs text-xxs text-custom-lightgray flex items-center pt-1">
         <a href="#" class="border-b border-custom-lightblue2 pb-px leading-none">Главная</a>
 
         <span class="mx-2 pb-px">→</span>

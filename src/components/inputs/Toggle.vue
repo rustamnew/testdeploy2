@@ -23,7 +23,7 @@
         after:transition-all" 
         :class="sizeClasses"></div>
         
-        <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300" v-if="text">{{ text }}</span>
+        <span class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" v-if="text">{{ text }}</span>
     </label>
 </template>
 
@@ -37,7 +37,7 @@
             sizeClasses: function () {
 
                 if (this.size === 'small') {
-                    return 'w-9 h-5 after:top-[2.5px] after:start-[2px] after:h-4 after:w-4'
+                    return 'w-9 h-5 after:top-[2px] after:start-[2px] after:h-4 after:w-4'
                 }
                 else if (this.size === 'medium') {
                     return 'w-11 h-6 after:top-[2px] after:start-[2px] after:h-5 after:w-5'

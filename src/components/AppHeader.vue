@@ -6,7 +6,7 @@
 <template>
     <header class="pt-12 flex flex-col items-center">
 
-        <div class="mb-5"><IconLogo /></div>
+        <div class="mb-1.25rem"><IconLogo /></div>
 
         <Breadcrumbs />
     </header>

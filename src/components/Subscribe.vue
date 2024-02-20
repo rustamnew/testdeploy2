@@ -1,7 +1,8 @@
 <script setup>
-import Toggle from './inputs/Toggle.vue';
+import SubscribeForm from './SubscribeForm.vue';
 import SubscribeCard from './SubscribeCard.vue';
-import IconRight from './icons/IconRight.vue';
+
+import { ref } from 'vue';
 
 const cards = [
     {
@@ -49,40 +50,48 @@ const cards = [
         image: 'card4.png'
     },
 ]
+
+const buttons = ref([
+    {
+        title: 'Рассылки',
+        active: true
+    },
+    {
+        title: 'Соцсети',
+        active: false
+    },
+    {
+        title: 'Мессенджеры',
+        active: false
+    }
+])
+
+const buttonActiveStyle = 'font-medium text-base border-custom-blue text-custom-lightblue '
+const buttonDefaultStyle = 'font-normal text-base border-transparent text-custom-gray'
+
+
+function clickButton(index) {
+    this.buttons.forEach( (button) => {
+        button.active = false
+    })
+    this.buttons[index].active = !this.buttons[index].active
+}
 </script>
 
 <template>
     <div class="subscriptions">
-        <h1 class="text-black text-3.5xl md:text-3.5 font-semibold tracking-tight mt-2 md:mt-5 text-center">Подписки «Клерка»</h1>
+        <h1 class="text-black text-3.5xl md:text-3.5 font-semibold tracking-semitight mt-1 md:mt-4 text-center">Подписки «Клерка»</h1>
 
         <div class="pt-5 md:pt-4 flex justify-center">
-            <button class="bg-transparent font-semibold text-custom-gray mx-3 pb-4 border-b-2 border-custom-blue text-custom-lightblue hover:border-custom-blue hover:text-custom-lightblue">
-                Рассылки
-            </button>
-
-            <button class="bg-transparent font-normal text-custom-gray mx-3 pb-4 border-b-2 border-transparent hover:border-custom-blue hover:text-custom-lightblue">
-                Соцсети
-            </button>
-
-            <button class="bg-transparent font-normal text-custom-gray mx-3 pb-4 border-b-2 border-transparent hover:border-custom-blue hover:text-custom-lightblue">
-                Мессенджеры
+            <button v-for="button, index in buttons" @click="clickButton(index)" class="bg-transparent mx-3 pb-4 border-b-2 hover:border-custom-blue hover:text-custom-lightblue" :class="buttons[index].active ? buttonActiveStyle : buttonDefaultStyle">
+                {{ button.title }}
             </button>
         </div>
 
-        <div class="content  bg-custom-graybg rounded-2xl p-4 pt-8 md:p-6 md:pt-12">
-            <h3 class="text-2xl md:text-center font-semibold tracking-tighter mb-6">Выберите рассылки, которые подходят именно вам</h3>
+        <div class="bg-custom-graybg md:rounded-2xl p-4 py-8 md:px-6 md:py-12">
+            <h3 class="text-2xl md:text-center font-semibold tracking-semitight pt-0.5 mb-4 md:mb-6">Выберите рассылки, которые подходят именно вам</h3>
 
-            <div class="form md:px-4 mb-8">
-                <div class="bg-white flex justify-between rounded-l-lg rounded-r-3xl overflow-hidden">
-                    <input type="email" placeholder="Электронная почта" class="border-transparent w-full border-transparent focus:border-transparent focus:ring-0">
-                    <button class="bg-custom-blue text-custom-white py-4 px-8 rounded-100 hidden md:flex">Подписаться</button>
-                    <button class="bg-custom-blue flex items-center justify-center w-14 h-14 text-custom-white py-4 px-8 rounded-full md:hidden"><IconRight /></button>
-                </div>
-
-                <div class="mt-4">
-                    <Toggle size="small" text="Подписаться на все рассылки"/>
-                </div>
-            </div>
+            <SubscribeForm />
 
             <div class="flex flex-wrap justify-center lg:grid grid-cols-2 gap-6">
                 <SubscribeCard v-for="card in cards" :card="card"/>

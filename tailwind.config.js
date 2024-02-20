@@ -3,6 +3,13 @@ module.exports = {
     purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     theme: {
         extend: {
+            spacing: {
+                '1.25rem': '1.25rem',
+                '0.5': '2px'
+            },
+            lineHeight: {
+                '1.28': '1.28',
+            },
             fontSize: {
                 'xxs': '0.8125rem',
                 '3.5': '3.5rem',
@@ -10,6 +17,8 @@ module.exports = {
             },
             maxWidth: {
                 'card': '29.75rem',
+                '80per': '80%',
+                '20per': '20%'
             },
             colors: {
                 custom: {
@@ -24,6 +33,9 @@ module.exports = {
             },
             borderRadius: {
                 100: '100px'
+            },
+            letterSpacing: {
+                'semitight': '-0.015em',
             }
             
         }
