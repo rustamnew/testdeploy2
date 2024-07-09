@@ -1,0 +1,16 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+input {
+    margin-bottom: 20px;
+}
+
+.info {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info span {
+    margin-bottom: 8px;
+}
